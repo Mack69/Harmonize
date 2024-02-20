@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Demo</string>
+    <string name="button">Button</string>
+    <string name="sign_in_with_google">Sign In With google</string>
+    <string name="login">Login</string>
+    <string name="new_user_sign_up">New User ? Sign Up</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="log_in">Log In</string>
+    <string name="passwordReg">Password</string>
+    <string name="PasswordReg">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="sign_up">SIGN UP</string>
+    <string name="phone_no">Phone No.</string>
+    <string name="emailReg">Email</string>
+    <string name="user_name">User Name</string>
+    <string name="register">Register</string>
+</resources>

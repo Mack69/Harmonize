@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#19191B"
+    tools:context=".MainActivity">
+
+
+    <Button
+        android:id="@+id/LogEmailBt"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="28dp"
+        android:background="@drawable/rounded_bg"
+        android:backgroundTint="#1BC8B8"
+        android:hint="@string/login"
+        android:padding="10dp"
+        android:text="@string/login"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/buttonGoogle"
+        app:layout_constraintEnd_toEndOf="@+id/gdLogRight"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/gdLogleft"
+        app:layout_constraintTop_toBottomOf="@+id/TextPassword" />
+
+    <Button
+        android:id="@+id/buttonGoogle"
+        android:layout_width="0dp"
+        android:layout_height="49dp"
+        android:background="@drawable/rounded_bg"
+        android:backgroundTint="@color/white"
+        android:drawableStart="@drawable/ic_google"
+        android:fontFamily="@font/roboto_regular"
+        android:foregroundTint="#BAFFFFFF"
+        android:padding="7sp"
+        android:paddingStart="15sp"
+        android:text="@string/sign_in_with_google"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toTopOf="@+id/textViewNewUser"
+        app:layout_constraintEnd_toStartOf="@+id/gdLogRight"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/gdLogleft"
+        app:layout_constraintTop_toBottomOf="@+id/LogEmailBt"
+        tools:ignore="RtlSymmetry" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gdLogleft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gdLogRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gdlogTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.07" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gdLogDown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.93" />
+
+    <EditText
+        android:id="@+id/TextEmail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
+        android:background="@drawable/rounded_bg"
+        android:backgroundTint="#434343"
+        android:ems="10"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
+        android:padding="10dp"
+        android:paddingStart="15dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#7AFFFFFF"
+        android:textSize="19sp"
+        app:layout_constraintBottom_toTopOf="@+id/TextPassword"
+        app:layout_constraintEnd_toStartOf="@+id/gdLogRight"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/gdLogleft"
+        app:layout_constraintTop_toTopOf="@+id/guideline6"
+        app:layout_constraintVertical_bias="1.0"
+        tools:ignore="RtlSymmetry" />
+
+    <EditText
+        android:id="@+id/TextPassword"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/rounded_bg"
+        android:backgroundTint="#434343"
+        android:ems="10"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:padding="10dp"
+        android:paddingStart="15dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#7AFFFFFF"
+        android:textSize="19sp"
+        app:layout_constraintBottom_toTopOf="@+id/LogEmailBt"
+        app:layout_constraintEnd_toStartOf="@+id/gdLogRight"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/gdLogleft"
+        app:layout_constraintTop_toBottomOf="@+id/TextEmail"
+        tools:ignore="RtlSymmetry" />
+
+    <TextView
+        android:id="@+id/textViewNewUser"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/new_user_sign_up"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/gdLogDown"
+        app:layout_constraintEnd_toStartOf="@+id/gdLogRight"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/gdLogleft"
+        app:layout_constraintTop_toBottomOf="@+id/buttonGoogle" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gdLogMid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.35" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="178dp"
+        android:layout_height="109dp"
+        app:cardCornerRadius="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline6"
+        app:layout_constraintEnd_toStartOf="@+id/gdLogRight"
+        app:layout_constraintStart_toStartOf="@+id/gdLogleft"
+        app:layout_constraintTop_toTopOf="@+id/gdlogTop">
+
+        <ImageView
+            android:id="@+id/imageViewLogo"
+            android:layout_width="189dp"
+            android:layout_height="114dp"
+            android:background="@drawable/images"
+            android:maxWidth="20dp"
+            android:maxHeight="20dp"
+            app:srcCompat="@drawable/images"
+            tools:layout_editor_absoluteX="93dp"
+            tools:layout_editor_absoluteY="151dp" />
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/TextReg"
+        android:layout_width="0dp"
+        android:layout_height="47dp"
+        android:layout_marginBottom="9dp"
+        android:ems="10"
+        android:hint="@string/log_in"
+        android:inputType="text"
+        android:text="Login"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/cardView"
+        app:layout_constraintEnd_toStartOf="@+id/gdLogRight"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/gdLogleft"
+        app:layout_constraintTop_toTopOf="@+id/gdlogTop"
+        app:layout_constraintVertical_bias="0.069"
+        tools:ignore="TextViewEdits" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.45" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
