@@ -4,4 +4,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="googleColor">#4285F4</color>
     <color name="LogText">#e7f1f3</color>
+    <color name="theme">#1BC8B8</color>
 </resources>
