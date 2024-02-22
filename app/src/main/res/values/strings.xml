@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Demo</string>
+    <string name="app_name">Harmonize</string>
     <string name="button">Button</string>
     <string name="sign_in_with_google">Sign In With google</string>
     <string name="login">Login</string>
