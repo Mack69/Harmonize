@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
+import android.widget.Toast
 import com.example.demo.databinding.ActivityMainBinding
 import com.example.demo.databinding.ActivityRegBinding
 import com.google.firebase.database.DatabaseReference
@@ -24,14 +25,26 @@ class RegActivity : AppCompatActivity() {
         dbref= FirebaseFirestore.getInstance().collection("User")
         binding.Signupbtn.setOnClickListener{
 
+            val confirmPass =binding.editTextTextPassword2.text.toString()
             val user=User(
                 name=binding.editTextText.text.toString(),
                 email=binding.editTextTextEmailAddress.text.toString(),
                 phone=binding.editTextPhone.text.toString(),
                 password=binding.editTextTextPassword.text.toString())
 
-            registerUser(user)
 
+            if(user.name.isNotEmpty()&& user.email.isNotEmpty() && user.phone.isNotEmpty() && user.password.isNotEmpty()){
+                if (user.password == confirmPass) {
+                    registerUser(user)
+                }
+                else{
+                    Toast.makeText(this, "Password is not matching" ,Toast.LENGTH_SHORT).show()
+                }
+
+            }else{
+                Toast.makeText(this, "Empty Fields are not allowed" ,Toast.LENGTH_SHORT).show()
+
+            }
         }
     }
 
