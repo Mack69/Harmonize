@@ -34,6 +34,7 @@ class RegActivity : AppCompatActivity() {
 
 
             if(user.name.isNotEmpty()&& user.email.isNotEmpty() && user.phone.isNotEmpty() && user.password.isNotEmpty()){
+
                 if (user.password == confirmPass) {
                     registerUser(user)
                 }
@@ -41,7 +42,8 @@ class RegActivity : AppCompatActivity() {
                     Toast.makeText(this, "Password is not matching" ,Toast.LENGTH_SHORT).show()
                 }
 
-            }else{
+            }
+            else{
                 Toast.makeText(this, "Empty Fields are not allowed" ,Toast.LENGTH_SHORT).show()
 
             }
@@ -53,9 +55,11 @@ class RegActivity : AppCompatActivity() {
         dbref.add(user)
             .addOnCompleteListener{
                 Log.d("Successful Reg", "registerUser: ")
+                Toast.makeText(this, "Registered Successfully" ,Toast.LENGTH_SHORT).show()
+
+
             }.addOnFailureListener{
                 Log.d("Unsuccessful Reg", "registerUser: ")
-
             }
     }
 }
