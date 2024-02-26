@@ -18,46 +18,49 @@ import java.util.regex.Pattern
 class RegActivity : AppCompatActivity() {
     private lateinit var dbref: CollectionReference
     private lateinit var binding: ActivityRegBinding
+    private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityRegBinding.inflate(layoutInflater)
         setContentView(binding.root)
-//        dbref= FirebaseFirestore.getInstance().collection("User")
+
+        dbref= FirebaseFirestore.getInstance().collection("User")
+        firebaseAuth=FirebaseAuth.getInstance()
+
         binding.Signupbtn.setOnClickListener{
 
             val confirmPass =binding.editTextTextPassword2.text.toString()
-
             val user=User(
                 name=binding.editTextText.text.toString(),
                 email=binding.editTextTextEmailAddress.text.toString(),
                 phone=binding.editTextPhone.text.toString(),
                 password=binding.editTextTextPassword.text.toString())
-            val phnlen= user.phone.length
+            val phonelength= user.phone.length
 
             if(user.name.isNotEmpty()&& user.email.isNotEmpty() && user.phone.isNotEmpty() && user.password.isNotEmpty())
             {
 
                 for (char in user.name){
-                    if (char.isDigit()==true){
-                        binding.editTextText.setError("Invalid Username")
+                    if (char.isDigit()){
+                        binding.editTextText.error = "Invalid Username"
                         return@setOnClickListener
                     }
                 }
 
                 if(!Pattern.matches(Patterns.EMAIL_ADDRESS.pattern(),user.email)){
-                    binding.editTextTextEmailAddress.setError("Invalid Email Address")
+                    binding.editTextTextEmailAddress.error = "Invalid Email Address"
                     return@setOnClickListener
                 }
 
-                if(phnlen!=10){
-                    binding.editTextPhone.setError("Invalid Phone Number")
+                if(phonelength!=10){
+                    binding.editTextPhone.error = "Invalid Phone Number"
                     return@setOnClickListener
                 }
 
                 if (user.password != confirmPass) {
-                    binding.editTextTextPassword2.setError("Password is not Matching")
+                    binding.editTextTextPassword2.error = "Password is not Matching"
                     return@setOnClickListener
                 }
                 registerUser(user)
@@ -69,18 +72,38 @@ class RegActivity : AppCompatActivity() {
             }
         }
     }
-    private fun registerUser(user:User){
-        FirebaseAuth.getInstance().createUserWithEmailAndPassword(user.email,user.password)
-            .addOnCompleteListener{
+//    private fun registerUser(user:User){
+//        firebaseAuth.createUserWithEmailAndPassword(user.email,user.password)
+//            .addOnCompleteListener{
+//                Log.d("Successful Reg", "registerUser: ")
+//                Toast.makeText(this, "Registered Successfully" ,Toast.LENGTH_SHORT).show()
+//                clearInputFields()
+//            }.addOnFailureListener{
+//                Log.d("Unsuccessful Reg", "registerUser: ")
+//                Toast.makeText(this, "Register Failed" ,Toast.LENGTH_SHORT).show()
+//            }
+//    }
+private fun registerUser(user: User) {
+    val data = mapOf(
+        "email" to user.email,
+        "name" to user.name,
+        "phone" to user.phone
+    )
+    dbref.add(data)
+    firebaseAuth.createUserWithEmailAndPassword(user.email, user.password)
+        .addOnCompleteListener { task ->
+            if (task.isSuccessful) {
                 Log.d("Successful Reg", "registerUser: ")
-                Toast.makeText(this, "Registered Successfully" ,Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Registered Successfully", Toast.LENGTH_SHORT).show()
                 clearInputFields()
-            }.addOnFailureListener{
-                Log.d("Unsuccessful Reg", "registerUser: ")
-                Toast.makeText(this, "Register Failed" ,Toast.LENGTH_SHORT).show()
+            } else {
+                Log.d("Unsuccessful Reg", "registerUser: ", task.exception)
+                Toast.makeText(this, "Register Failed", Toast.LENGTH_SHORT).show()
             }
-    }
-    fun clearInputFields() {
+        }
+}
+
+    private fun clearInputFields() {
         binding.editTextText.text.clear()
         binding.editTextTextEmailAddress.text.clear()
         binding.editTextPhone.text.clear()
