@@ -1,5 +1,6 @@
 package com.example.demo
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -59,11 +60,17 @@ class RegActivity : AppCompatActivity() {
                     return@setOnClickListener
                 }
 
+                if(user.password.length <6){
+                    binding.editTextTextPassword.error = "Password should be min 6 chars"
+                    return@setOnClickListener
+                }
+
                 if (user.password != confirmPass) {
                     binding.editTextTextPassword2.error = "Password is not Matching"
                     return@setOnClickListener
                 }
                 registerUser(user)
+                startActivity(Intent(this,MainActivity::class.java))
 
             }
             else{
@@ -72,6 +79,7 @@ class RegActivity : AppCompatActivity() {
             }
         }
     }
+
 //    private fun registerUser(user:User){
 //        firebaseAuth.createUserWithEmailAndPassword(user.email,user.password)
 //            .addOnCompleteListener{
@@ -98,7 +106,7 @@ private fun registerUser(user: User) {
                 clearInputFields()
             } else {
                 Log.d("Unsuccessful Reg", "registerUser: ", task.exception)
-                Toast.makeText(this, "Register Failed", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Email already registered", Toast.LENGTH_SHORT).show()
             }
         }
 }
