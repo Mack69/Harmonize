@@ -1,5 +1,6 @@
 package com.example.demo
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.demo.databinding.ActivityHomeBinding
@@ -14,5 +15,9 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.userDp.setOnClickListener{
+            startActivity(Intent(this,UserProfileActivity::class.java))
+        }
     }
 }

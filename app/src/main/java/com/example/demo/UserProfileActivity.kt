@@ -17,8 +17,8 @@ class UserProfileActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.backBtn.setOnClickListener {
-            FirebaseAuth.getInstance().signOut()
-            startActivity(Intent(this,MainActivity::class.java))
+            //FirebaseAuth.getInstance().signOut()
+            startActivity(Intent(this,HomeActivity::class.java))
             finish()
         }
     }

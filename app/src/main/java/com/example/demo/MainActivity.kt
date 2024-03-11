@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     Log.d("Successful Login", "LoginUser: ")
                     Toast.makeText(this, "Login Successfully", Toast.LENGTH_SHORT).show()
-                    startActivity(Intent(this,UserProfileActivity::class.java))
+                    startActivity(Intent(this,HomeActivity::class.java))
                     finish()
                     clearInputFields()
                 } else {
@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         FirebaseAuth.getInstance().currentUser?.apply {
-            startActivity(Intent(this@MainActivity,UserProfileActivity::class.java)
+            startActivity(Intent(this@MainActivity,HomeActivity::class.java)
                 .putExtra("user", FirebaseAuth.getInstance().currentUser))
             finish()
 
