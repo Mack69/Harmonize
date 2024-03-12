@@ -48,8 +48,8 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="175dp"
-            android:layout_height="177dp"
+            android:layout_width="133dp"
+            android:layout_height="133dp"
             android:background="@drawable/profile"
             android:scaleType="centerCrop"
             app:srcCompat="@drawable/profile" />
@@ -64,7 +64,7 @@
 
     <ImageView
         android:id="@+id/backBtn"
-        android:layout_width="42dp"
+        android:layout_width="36dp"
         android:layout_height="32dp"
         android:layout_marginStart="16dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -76,7 +76,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.17" />
+        app:layout_constraintGuide_percent="0.16" />
 
     <TextView
         android:id="@+id/textView"
@@ -85,11 +85,35 @@
         android:layout_marginTop="8dp"
         android:text="Profile"
         android:textColor="#FFFFFF"
-        android:textSize="28sp"
+        android:textIsSelectable="false"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/gdUserRight"
         app:layout_constraintHorizontal_bias="0.457"
         app:layout_constraintStart_toStartOf="@+id/gdUserLeft"
         app:layout_constraintTop_toTopOf="@+id/gdUserTop" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.85" />
+
+    <Button
+        android:id="@+id/LogoutBtn"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/rounded_bg"
+        android:backgroundTint="#E8EA2C2C"
+        android:drawableTint="@color/black"
+        android:text="Log Out"
+        android:textColor="#FFFFFF"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/gdUserDown"
+        app:layout_constraintEnd_toStartOf="@+id/gdUserRight"
+        app:layout_constraintStart_toStartOf="@+id/gdUserLeft"
+        app:layout_constraintTop_toTopOf="@+id/guideline" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

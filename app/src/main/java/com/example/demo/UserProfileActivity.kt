@@ -21,5 +21,11 @@ class UserProfileActivity : AppCompatActivity() {
             startActivity(Intent(this,HomeActivity::class.java))
             finish()
         }
+        binding.LogoutBtn.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+            startActivity(Intent(this,MainActivity::class.java))
+            finish()
+        }
+
     }
 }

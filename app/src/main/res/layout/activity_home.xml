@@ -44,11 +44,13 @@
             android:height="50dp"
             android:background="@drawable/rounded_bg"
             android:backgroundTint="#434343"
+            android:drawableLeft="@android:drawable/ic_menu_search"
+            android:drawableTint="@color/theme"
             android:ems="10"
             android:inputType="text"
             android:maxWidth="300dp"
             android:padding="8dp"
-            android:text="  ⌕ Search"
+            android:text=" Search"
             android:textColor="#7AFFFFFF"
             android:textSize="18dp" />
     </RelativeLayout>
