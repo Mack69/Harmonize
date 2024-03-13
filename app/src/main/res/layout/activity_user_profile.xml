@@ -1,119 +1,161 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0e1f29"
-    tools:context=".UserProfileActivity">
+    tools:context=".UserProfileActivity"
+    android:id="@+id/constraintProfile">
+    >
+
+    <ImageView
+        android:id="@+id/imgTop"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_screen_grad"
+        app:layout_constraintBottom_toTopOf="@+id/gdProfileMid"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/bg_profile" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardBtnProfBack"
+        android:layout_width="47dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/rounded_bg"
+        android:backgroundTint="@color/theme"
+        android:foregroundGravity="center_vertical|clip_horizontal"
+        app:cardCornerRadius="50dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintStart_toStartOf="@+id/gdProfileLeft"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/imgBtnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:backgroundTint="@color/theme"
+            android:outlineProvider="paddedBounds"
+            android:src="?attr/actionModeCloseDrawable" />
+    </androidx.cardview.widget.CardView>
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gdUserLeft"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.1" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gdUserRight"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.9" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gdUserTop"
+        android:id="@+id/gdProfileMid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gdProfileLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
         app:layout_constraintGuide_percent="0.05" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gdUserDown"
+        android:id="@+id/gdProfileRight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.92031425" />
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.95" />
 
     <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        app:cardCornerRadius="300dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline8"
-        app:layout_constraintEnd_toStartOf="@+id/gdUserRight"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/gdUserLeft"
-        app:layout_constraintTop_toTopOf="@+id/guideline9">
+        android:id="@+id/cardProfile"
+        android:layout_width="120dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="20dp"
+        app:cardCornerRadius="100dp"
+        app:layout_constraintBottom_toTopOf="@+id/gdProfileMid"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toStartOf="@+id/gdProfileRight">
 
         <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="133dp"
-            android:layout_height="133dp"
-            android:background="@drawable/profile"
+            android:id="@+id/imgUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:scaleType="centerCrop"
             app:srcCompat="@drawable/profile" />
     </androidx.cardview.widget.CardView>
 
+    <TextView
+        android:id="@+id/textUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Abhijaan Ganguly"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/cardProfile"
+        app:layout_constraintStart_toStartOf="@+id/gdProfileLeft"
+        app:layout_constraintTop_toTopOf="@+id/cardProfile" />
+
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline8"
+        android:id="@+id/gdProfileMid2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.37" />
+        app:layout_constraintGuide_percent="0.4" />
 
     <ImageView
-        android:id="@+id/backBtn"
-        android:layout_width="36dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/gdUserTop"
-        app:srcCompat="@drawable/arrow_left_solid" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline9"
+        android:id="@+id/icEditName"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.16" />
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="1:1"
+        android:layout_marginStart="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textUsername"
+        app:layout_constraintStart_toEndOf="@+id/textUsername"
+        app:layout_constraintTop_toTopOf="@+id/textUsername"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/ic_edit" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardEditName"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Profile"
-        android:textColor="#FFFFFF"
-        android:textIsSelectable="false"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/gdUserRight"
-        app:layout_constraintHorizontal_bias="0.457"
-        app:layout_constraintStart_toStartOf="@+id/gdUserLeft"
-        app:layout_constraintTop_toTopOf="@+id/gdUserTop" />
+        android:visibility="gone"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/cardProfile"
+        app:layout_constraintEnd_toStartOf="@+id/gdProfileRight"
+        app:layout_constraintStart_toStartOf="@+id/gdProfileLeft"
+        app:layout_constraintTop_toTopOf="@+id/cardProfile">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.85" />
+        <EditText
+            android:id="@+id/editTextEditName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/rounded_bg"
+            android:ems="10"
+            android:inputType="text"
+            android:padding="10dp"
+            android:text="Name"
+            android:textSize="18sp" />
+    </androidx.cardview.widget.CardView>
 
     <Button
         android:id="@+id/LogoutBtn"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="324dp"
+        android:layout_height="60dp"
         android:background="@drawable/rounded_bg"
-        android:backgroundTint="#E8EA2C2C"
-        android:drawableTint="@color/black"
+        android:backgroundTint="#DD4C4C"
+        android:padding="18dp"
         android:text="Log Out"
-        android:textColor="#FFFFFF"
-        android:textSize="19sp"
+        android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/gdUserDown"
-        app:layout_constraintEnd_toStartOf="@+id/gdUserRight"
-        app:layout_constraintStart_toStartOf="@+id/gdUserLeft"
-        app:layout_constraintTop_toTopOf="@+id/guideline" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/gdProfileRight"
+        app:layout_constraintStart_toStartOf="@+id/gdProfileLeft"
+        app:layout_constraintTop_toTopOf="@+id/gdProfileMid2"
+        app:layout_constraintVertical_bias="0.823" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
